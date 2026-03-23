@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault - Détails de l'entrée</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script defer src="/static/js/app.js"></script>
+</head>
+<body class="h-full">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">Vault</div>
+      <nav class="sidebar-nav">
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <a href="/add" class="nav-link">Ajouter un mot de passe</a>
+        <a href="/add#generator" class="nav-link">Générateur</a>
+        <a href="/settings" class="nav-link">Paramètres</a>
+        <button id="lock-btn" type="button" class="nav-link nav-link-danger">Verrouiller</button>
+      </nav>
+    </aside>
+
+    <main class="main" id="entry-view-root">
+      <header class="main-header">
+        <div>
+          <h1 class="main-title">Détails de l'entrée</h1>
+          <p class="main-subtitle">Afficher, copier ou modifier cette entrée du coffre.</p>
+        </div>
+        <a href="/dashboard" class="btn btn-secondary">Retour au dashboard</a>
+      </header>
+
+      <section class="card" id="entry-card" data-entry-id="">
+        <div class="mb-4">
+          <label>Site / Application</label>
+          <div class="flex gap-2 items-center">
+            <input id="entry-site" type="text" class="input" />
+          </div>
+        </div>
+        <div class="mb-4">
+          <label>Identifiant</label>
+          <div class="flex gap-2 items-center">
+            <input id="entry-username" type="text" class="input" />
+            <button id="copy-username-btn" type="button" class="btn btn-secondary">Copier</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label>Mot de passe</label>
+          <div class="flex gap-2 items-center">
+            <div class="relative flex-1">
+              <input id="entry-password" type="password" class="input input-lg" />
+              <button type="button" id="toggle-entry-password" class="btn-icon absolute inset-y-0 right-2 my-auto">Montrer</button>
+            </div>
+            <button id="copy-password-btn" type="button" class="btn btn-secondary">Copier</button>
+          </div>
+        </div>
+        <div class="mb-4">
+          <label>Notes</label>
+          <textarea id="entry-notes" rows="3" class="input" style="resize:vertical;"></textarea>
+        </div>
+        <div class="flex justify-between items-center">
+          <button id="delete-entry-btn" type="button" class="btn btn-danger">Supprimer</button>
+          <div class="flex gap-2">
+            <a href="/dashboard" class="btn btn-secondary">Annuler</a>
+            <button id="save-entry-btn" type="button" class="btn btn-primary">Enregistrer</button>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast-root" class="toast-container"></div>
+</body>
+</html>
+

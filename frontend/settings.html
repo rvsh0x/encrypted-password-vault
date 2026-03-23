@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault - Paramètres</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script defer src="/static/js/app.js"></script>
+</head>
+<body class="h-full">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">Vault</div>
+      <nav class="sidebar-nav">
+        <a href="/dashboard" class="nav-link">Dashboard</a>
+        <a href="/add" class="nav-link">Ajouter un mot de passe</a>
+        <a href="/add#generator" class="nav-link">Générateur</a>
+        <a href="/settings" class="nav-link active">Paramètres</a>
+        <button id="lock-btn" type="button" class="nav-link nav-link-danger">Verrouiller</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1 class="main-title">Paramètres de sécurité</h1>
+          <p class="main-subtitle">Tout reste local, aucune donnée n'est envoyée sur internet.</p>
+        </div>
+      </header>
+
+      <section class="card mb-4">
+        <h2 class="mb-2" style="font-size:1rem; font-weight:500;">Auto-verrouillage</h2>
+        <p class="main-subtitle" style="margin-bottom:0.75rem;">Verrouille automatiquement le coffre après une période d'inactivité.</p>
+        <form id="auto-lock-form" class="flex gap-2 items-center">
+          <label for="auto-lock-minutes">Minutes d'inactivité :</label>
+          <input id="auto-lock-minutes" type="number" min="1" max="120" value="10" class="input" style="max-width:5rem;" />
+          <button type="submit" class="btn btn-primary">Enregistrer</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <h2 class="mb-2" style="font-size:1rem; font-weight:500;">Informations</h2>
+        <p class="main-subtitle">Chiffrement AES-256-GCM, dérivation de clé Argon2id/PBKDF2, coffre chiffré en local.</p>
+        <ul style="margin-top:0.75rem; font-size:0.875rem; color:#94a3b8;">
+          <li>- Les mots de passe ne sont jamais loggés ni envoyés sur le réseau.</li>
+          <li>- L'auto-lock et le verrouillage après échecs protègent contre le bruteforce.</li>
+          <li>- L'interface web ne sert qu'à piloter le coffre Python existant.</li>
+        </ul>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast-root" class="toast-container"></div>
+</body>
+</html>
+

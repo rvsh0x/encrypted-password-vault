@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault - Déverrouillage</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script defer src="/static/js/app.js"></script>
+</head>
+<body class="h-full">
+  <div class="unlock-page">
+    <div class="unlock-box">
+      <h1 class="main-title">Coffre-fort local</h1>
+      <p class="main-subtitle">Entrez votre mot de passe maître pour déverrouiller le vault chiffré.</p>
+
+      <form id="unlock-form" class="mt-4">
+        <div class="mb-4">
+          <label for="master_password">Mot de passe maître</label>
+          <div class="relative">
+            <input id="master_password" name="master_password" type="password" autocomplete="current-password" required class="input input-lg" />
+            <button type="button" id="toggle-master" class="btn-icon absolute inset-y-0 right-2 my-auto">Montrer</button>
+          </div>
+        </div>
+
+        <div class="mb-4">
+          <label for="vault_path">Chemin du vault (optionnel)</label>
+          <input id="vault_path" name="vault_path" type="text" placeholder="./vault.enc" class="input" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-full">Déverrouiller</button>
+      </form>
+
+      <p id="unlock-error" class="mt-4 text-sm" style="color:#fca5a5; display:none;"></p>
+      <p class="mt-2 text-xs" style="color:#64748b;">Tout reste chiffré localement sur votre machine (AES-256-GCM, Argon2id/PBKDF2).</p>
+    </div>
+  </div>
+
+  <div id="toast-root" class="toast-container"></div>
+</body>
+</html>
+

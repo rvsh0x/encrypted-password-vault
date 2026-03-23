@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vault - Dashboard</title>
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <script defer src="/static/js/app.js"></script>
+</head>
+<body class="h-full">
+  <div class="layout">
+    <aside class="sidebar">
+      <div class="sidebar-header">Vault</div>
+      <nav class="sidebar-nav">
+        <a href="/dashboard" class="nav-link active">Dashboard</a>
+        <a href="/add" class="nav-link">Ajouter un mot de passe</a>
+        <a href="/add#generator" class="nav-link">Générateur</a>
+        <a href="/settings" class="nav-link">Paramètres</a>
+        <button id="lock-btn" type="button" class="nav-link nav-link-danger">Verrouiller</button>
+      </nav>
+    </aside>
+
+    <main class="main">
+      <header class="main-header">
+        <div>
+          <h1 class="main-title">Vos mots de passe</h1>
+          <p class="main-subtitle">Recherche instantanée, tri local, aucune donnée envoyée sur internet.</p>
+        </div>
+        <a href="/add" class="btn btn-primary">+ Ajouter</a>
+      </header>
+
+      <section class="card mb-4">
+        <div class="flex md:flex-row flex-col gap-3 md:items-center md:justify-between">
+          <div class="flex-1">
+            <input id="search" type="text" placeholder="Rechercher par site ou identifiant" class="input w-full" />
+          </div>
+          <div class="flex gap-2 justify-end">
+            <button id="sort-site" class="chip">Trier par site</button>
+            <button id="sort-username" class="chip">Trier par identifiant</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <table class="w-full text-sm">
+          <thead class="text-slate-400" style="border-bottom:1px solid var(--border);">
+            <tr>
+              <th class="table-th">Site</th>
+              <th class="table-th">Identifiant</th>
+              <th class="table-th text-right">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="entries-body"></tbody>
+        </table>
+        <p id="no-entries" class="mt-4 text-sm" style="color:#64748b; display:none;">Aucune entrée dans le coffre.</p>
+      </section>
+    </main>
+  </div>
+
+  <div id="toast-root" class="toast-container"></div>
+</body>
+</html>
+

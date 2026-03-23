@@ -1,0 +1,12 @@
+# Gestionnaire de mots de passe - dépendances
+# Python 3.11+
+
+cryptography>=42.0.0
+argon2-cffi>=23.1.0
+fastapi>=0.110.0
+uvicorn[standard]>=0.29.0
+jinja2>=3.1.0
+itsdangerous>=2.1.0
+
+# Développement / tests
+pytest>=7.0.0
